@@ -4,6 +4,18 @@
 <p><strong>Steps</strong></p>
 <p><%= simple_format(@recipe.description)%></p>
 </hr>
+
+<div class="row">
+
+      <div class="recipe-action">
+        <%= link_to "Edit recipe",edit_recipe_path(@recipe), class: "btn btn-xs btn-warning"%>
+
+
+        <%= link_to "Delete", recipe_path(@recipe), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger"%>
+      </div>
+
+</div>
+
 <p class="center">
   <%= link_to gravatar_for(@recipe.chef), recipes_path %>
 </p>
