@@ -1,0 +1,10 @@
+<%= render 'shared/page_title', title: @recipe.name %>
+
+
+<p><strong>Steps</strong></p>
+<p><%= simple_format(@recipe.description)%></p>
+</hr>
+<p class="center">
+  <%= link_to gravatar_for(@recipe.chef), recipes_path %>
+</p>
+<small>by <%= @chef.chefname %></small>

@@ -6,12 +6,12 @@
   <div class="row">
     <div class="col-md-2">
       <section class="center">
-
+        <%= link_to gravatar_for(recipe.chef, size: 100), recipes_path %>
       </section>
     </div>
 
     <div class="col-md-10 card">
-      <h4> <strong><%= recipe.name %></strong></h4>
+      <h4><strong><%= link_to recipe.name, recipe_path(recipe) %></strong></h4>
       <p><strong>description:</strong> <%= truncate(recipe.description, length:150) %></p>
       <span class ="quiet"><small> <%= time_ago_in_words(recipe.created_at) %>  ago</small></span>
     </div>
