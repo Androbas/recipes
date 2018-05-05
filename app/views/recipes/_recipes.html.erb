@@ -10,7 +10,7 @@
       <h4><strong><%= link_to recipe.name, recipe_path(recipe) %></strong></h4>
       <p><strong>description:</strong> <%= truncate(recipe.description, length:150) %></p>
       <span class ="quiet"><small> <%= time_ago_in_words(recipe.created_at) %>  ago</small></span>
-      <% if logged_in? && current_chef == recipe.chef %>
+      <% if logged_in? && (current_chef == recipe.chef || current_chef.admin?) %>
         <div class="recipe-actions">
           <%= link_to "Edit recipe",edit_recipe_path(recipe), class: "btn btn-xs btn-warning"%>
           <%= link_to "Delete", recipe_path(recipe), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-xs btn-danger" %>
