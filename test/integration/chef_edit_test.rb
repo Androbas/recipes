@@ -6,6 +6,7 @@ class ChefEditTest < ActionDispatch::IntegrationTest
   end
 
   test "Reject an invalid edit"  do
+    sign_in_as(@chef, 'password')
     get edit_chef_path(@chef)
     assert_template "chefs/edit"
     patch chef_path(@chef), params: {chef: {chefname:"", email:"mail@mail.com"}}
@@ -15,6 +16,7 @@ class ChefEditTest < ActionDispatch::IntegrationTest
   end
 
   test "Accept valid edit" do
+    sign_in_as(@chef, 'password')
     get edit_chef_path(@chef)
     assert_template "chefs/edit"
     patch chef_path(@chef), params: {chef: {chefname:"Androba", email:"mail@mail.com"}}
