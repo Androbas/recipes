@@ -9,6 +9,8 @@ class RecipesController < ApplicationController
   end
   def show
     @chef = Chef.find(@recipe.chef_id)
+    puts '--------------------------------------------------'
+    puts current_chef
     @comment = Comment.new
     @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
   end
